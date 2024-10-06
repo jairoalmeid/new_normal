@@ -48,3 +48,18 @@ CREATE TABLE popularity (
     factor INT,
     FOREIGN KEY (disno) REFERENCES disasters(DisNo) ON DELETE CASCADE
 );
+
+
+CREATE TABLE disaster_popularity_summary (
+    disno VARCHAR(100),
+    total_popularity FLOAT,
+    non_zero_weeks_count INT,
+    total_country INT
+);
+
+CREATE TABLE country_popularity (
+    disno VARCHAR(20),
+    country VARCHAR(100),
+    popularity NUMERIC,
+    FOREIGN KEY (disno) REFERENCES disasters(DisNo) ON DELETE CASCADE
+);
